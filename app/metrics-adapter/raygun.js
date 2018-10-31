@@ -1,0 +1,1 @@
+export { default } from 'ember-metrics-raygun/metrics-adapters/raygun';
