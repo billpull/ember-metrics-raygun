@@ -59,4 +59,8 @@ export default BaseAdapter.extend({
             customData,
         });
     },
+
+    willDestroy() {
+        this.detach();
+    }
 });
