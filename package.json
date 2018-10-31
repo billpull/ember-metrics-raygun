@@ -1,9 +1,12 @@
 {
   "name": "ember-metrics-raygun",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "0.0.1",
+  "description": "Raygun adapter for ember-metrics",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "ember-metrics",
+    "raygun",
+    "analytics"
   ],
   "repository": "",
   "license": "MIT",
@@ -18,10 +21,14 @@
     "lint:js": "eslint .",
     "start": "ember serve",
     "test": "ember test",
-    "test:all": "ember try:each"
+    "test:all": "ember try:each",
+    "pretty-all": "prettier --write '{app,tests,,config}/**/*.{js,json}' *.js *.json",
+    "precommit": "lint-staged"
   },
   "dependencies": {
-    "ember-cli-babel": "^6.16.0"
+    "ember-cli-babel": "^6.16.0",
+    "ember-auto-import": "^1.2.15",
+    "raygun4js": "^2.13.1"
   },
   "devDependencies": {
     "@ember/optional-features": "^0.6.3",
@@ -48,12 +55,34 @@
     "eslint-plugin-ember": "^5.2.0",
     "eslint-plugin-node": "^7.0.1",
     "loader.js": "^4.7.0",
-    "qunit-dom": "^0.8.0"
+    "qunit-dom": "^0.8.0",
+    "prettier-eslint": "8.8.2"
+  },
+  "peerDependencies": {
+    "ember-metrics": "^0.12.1"
   },
   "engines": {
     "node": "6.* || 8.* || >= 10.*"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "proseWrap": "preserve",
+    "overrides": []
+  },
+  "lint-staged": {
+    "{app,tests}/**/*.{js,json}": [
+      "prettier --write",
+      "git add"
+    ],
+    "./*.{js,json}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
