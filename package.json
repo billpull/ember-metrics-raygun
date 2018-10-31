@@ -22,7 +22,7 @@
     "start": "ember serve",
     "test": "ember test",
     "test:all": "ember try:each",
-    "pretty-all": "prettier --write '{app,tests,,config}/**/*.{js,json}' *.js *.json",
+    "pretty-all": "prettier --write '{addon,app,tests,config}/**/*.{js,json}' *.js *.json",
     "precommit": "lint-staged"
   },
   "dependencies": {
@@ -76,7 +76,7 @@
     "overrides": []
   },
   "lint-staged": {
-    "{app,tests}/**/*.{js,json}": [
+    "{addon,app,tests}/**/*.{js,json}": [
       "prettier --write",
       "git add"
     ],
