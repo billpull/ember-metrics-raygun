@@ -4,29 +4,32 @@ import BaseAdapter from 'ember-metrics/metrics-adapters/base';
 import rg4js from 'raygun4js';
 
 export default BaseAdapter.extend({
+    toStringExtension() {
+        return 'Raygun';
+    },
+
     init() {
         const config = get(this, 'config');
-        const { raygun } = config;
 
-        rg4js('apiKey', raygun.apiKey);
-        rg4js('enableCrashReporting', raygun.enableCrashReporting || false);
-        rg4js('enablePulse', raygun.enablePulse || false);
-        rg4js('options', raygun.options);
+        rg4js('apiKey', config.apiKey);
+        rg4js('enableCrashReporting', config.enableCrashReporting || false);
+        rg4js('enablePulse', config.enablePulse || false);
+        rg4js('options', config.options);
 
-        if (raygun.hasOwnProperty('tags')) {
-            rg4js('withTags', raygun.tags);
+        if (config.hasOwnProperty('tags')) {
+            rg4js('withTags', config.tags);
         }
 
-        if (raygun.hasOwnProperty('customData')) {
-            rg4js('withCustomData', raygun.customData);
+        if (config.hasOwnProperty('customData')) {
+            rg4js('withCustomData', config.customData);
         }
 
-        if (raygun.hasOwnProperty('filterScope')) {
-            rg4js('setFilterScope', raygun.filterScope);
+        if (config.hasOwnProperty('filterScope')) {
+            rg4js('setFilterScope', config.filterScope);
         }
 
-        if (raygun.hasOwnProperty('filterSensitiveData')) {
-            rg4js('filterSensitiveData', raygun.sensitiveData);
+        if (config.hasOwnProperty('filterSensitiveData')) {
+            rg4js('filterSensitiveData', config.sensitiveData);
         }
     },
 

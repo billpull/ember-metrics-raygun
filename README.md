@@ -1,7 +1,7 @@
 ember-metrics-raygun
 ==============================================================================
 
-[Short description of the addon.]
+Metrics adapter for [Raygun](https://raygun.com/) error & user tracking.
 
 Installation
 ------------------------------------------------------------------------------
@@ -14,7 +14,40 @@ ember install ember-metrics-raygun
 Usage
 ------------------------------------------------------------------------------
 
-[Longer description of how to use the addon in apps.]
+```js
+// config/environment.js
+let ENV = {
+  metricsAdapters: [
+    {
+      name: 'Raygun',
+      config: {
+          apiKey: '*********',
+          enableCrashReporting: true,
+          enablePulse: true,
+          options: {},
+          tags: [],
+          customData: {},
+          filterScope: 'all',
+          filterSensitiveData: []
+      }
+    }
+  ]
+};
+```
+
+For documentation on above options view [Raygun's docs for raygun4js](https://raygun.com/docs/languages/javascript).
+
+### Adapter Methods
+
+- `detach`: detaches raygun instance from `window.onerror`
+
+- `identify`: sets user data for affected user tracking. [Documentation for options](https://raygun.com/docs/languages/javascript#usertracking).
+
+- `trackEvent`: send event data.
+
+- `trackPage`: track page view event. [Documentation](https://raygun.com/docs/languages/javascript#pulseapi).
+
+- `send`: manually send an error.
 
 
 Contributing
