@@ -1,4 +1,4 @@
-ember-metrics-raygun
+ember-metrics-raygun [![Build Status](https://travis-ci.org/billpull/ember-metrics-raygun.svg?branch=master)](https://travis-ci.org/billpull/ember-metrics-raygun)
 ==============================================================================
 
 Metrics adapter for [Raygun](https://raygun.com/) error & user tracking.
@@ -55,7 +55,7 @@ Contributing
 
 ### Installation
 
-* `git clone <repository-url>`
+* `git clone https://github.com/billpull/ember-metrics-raygun`
 * `cd ember-metrics-raygun`
 * `yarn install`
 
