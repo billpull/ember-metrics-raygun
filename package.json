@@ -8,9 +8,15 @@
     "raygun",
     "analytics"
   ],
-  "repository": "",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/billpull/ember-metrics-raygun"
+  },
+  "bugs": {
+    "url": "https://github.com/billpull/ember-metrics-raygun/issues"
+  },
   "license": "MIT",
-  "author": "",
+  "author": "Bill Pullen <bill.pull@gmail.com> (http://billpull.com/)",
   "directories": {
     "doc": "doc",
     "test": "tests"
