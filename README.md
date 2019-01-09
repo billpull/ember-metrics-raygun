@@ -28,7 +28,8 @@ let ENV = {
           tags: [],
           customData: {},
           filterScope: 'all',
-          filterSensitiveData: []
+          filterSensitiveData: [],
+          version: '1.0.0'
       }
     }
   ]
