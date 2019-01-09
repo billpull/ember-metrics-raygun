@@ -40,6 +40,10 @@ export default BaseAdapter.extend({
             if (config.hasOwnProperty('filterSensitiveData')) {
                 window.rg4js('filterSensitiveData', config.sensitiveData);
             }
+
+            if (config.hasOwnProperty('version')) {
+                window.rg4js('setVersion', config.version);
+            }
         }
     },
 
