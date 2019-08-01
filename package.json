@@ -9,8 +9,8 @@
     "analytics"
   ],
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/billpull/ember-metrics-raygun"
+    "type": "git",
+    "url": "https://github.com/billpull/ember-metrics-raygun"
   },
   "bugs": {
     "url": "https://github.com/billpull/ember-metrics-raygun/issues"
