@@ -1,6 +1,12 @@
 import { get } from '@ember/object';
 import BaseAdapter from 'ember-metrics/metrics-adapters/base';
 import canUseDOM from 'ember-metrics/utils/can-use-dom';
+import objectTransforms from 'ember-metrics/utils/object-transforms';
+
+const {
+    compact,
+    without,
+} = objectTransforms;
 
 
 export default BaseAdapter.extend({
@@ -55,7 +61,15 @@ export default BaseAdapter.extend({
 
     identify(options = {}) {
         if (canUseDOM) {
-            window.rg4js('setUser', options);
+            const compactedOptions = compact(options);
+            const { distinctId } = compactedOptions;
+            const props = without(compactedOptions, 'distinctId');
+
+            if (distinctId) {
+                props.identifier = distinctId;
+            }
+
+            window.rg4js('setUser', props);
         }
     },
 
@@ -68,7 +82,7 @@ export default BaseAdapter.extend({
     trackPage({ page }) {
         this.trackEvent({
             type: 'pageView',
-            path: `/${page}`,
+            path: page,
         });
     },
 

@@ -55,8 +55,8 @@ module('Unit | Metrics Adapters | Raygun', function(hooks) {
       return true;
     });
 
-    const page = 'index';
-    const pageView = { type: 'pageView', path: `/${page}` };
+    const page = '/index';
+    const pageView = { type: 'pageView', path: page };
     this.subject.trackPage({ page });
 
     assert.ok(stub.calledWith('trackEvent', pageView));
@@ -67,10 +67,10 @@ module('Unit | Metrics Adapters | Raygun', function(hooks) {
       return true;
     });
     
-    const user = { id: 1, isGuest: true };
+    const user = { identifier: 1, distinctId: 1, uuid: 2 };
     this.subject.identify(user);
 
-    assert.ok(stub.calledWith('setUser', user));
+    assert.ok(stub.calledWith('setUser', { identifier: 1, uuid: 2 }));
   });
 
   test('it calls detach on destroy', function(assert) {
