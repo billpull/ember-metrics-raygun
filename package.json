@@ -1,6 +1,6 @@
 {
   "name": "ember-metrics-raygun",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Raygun adapter for ember-metrics",
   "keywords": [
     "ember-addon",
